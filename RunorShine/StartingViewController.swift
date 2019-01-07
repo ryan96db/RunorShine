@@ -36,7 +36,7 @@ class StartingViewController: UIViewController, CLLocationManagerDelegate {
         if (sender as AnyObject).selectedSegmentIndex == 0 {
             dress = "Light"
             print("User wants to dress lightly")
-            print(dress)
+            
             
         }
         //If user changes from default, then comes back to normal

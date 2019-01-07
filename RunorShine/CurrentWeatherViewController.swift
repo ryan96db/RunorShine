@@ -69,7 +69,13 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         tableView.dataSource = self
         print(threshold)
         
+        
+        
+        self.tableView.separatorStyle = .none
+        self.tableView.tableFooterView = UIView(frame: .zero)
+        
         super.viewDidLoad()
+        
         
 
         // Do any additional setup after loading the view.
@@ -381,7 +387,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
                 self.weatherIcon.image = UIImage(named: "Moony")
             }
             if self.conditionTextField.text! == "Snow" {
-                self.weatherIcon.image = UIImage(named: "Nightsnow")
+                self.weatherIcon.image = UIImage(named: "NightSnow")
             }
             if self.conditionTextField.text! == "Rain" || self.conditionTextField.text! == "Drizzle" {
                 self.weatherIcon.image = UIImage(named: "NightRain")
@@ -396,6 +402,12 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        self.tableView.tableFooterView = UIView(frame: .zero)
+        cell.backgroundColor = UIColor.white
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
         
@@ -406,54 +418,54 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        if items[indexPath.row].name == "Tank Top" {
-            cell.imageView?.image = UIImage(named: "TankTop1")
-        }
-        if items[indexPath.row].name == "Shorts" {
-            cell.imageView?.image = UIImage(named: "Shorts2")
-        }
-        if items[indexPath.row].name == "Short-Sleeve T-Shirt" {
-            cell.imageView?.image = UIImage(named: "ShortSleeveShirt3")
-        }
-        if items[indexPath.row].name == "Long-Sleeve T-Shirt" {
-            cell.imageView?.image = UIImage(named: "LongSleeveShirt4")
-        }
-        if items[indexPath.row].name == "Jacket" {
-            cell.imageView?.image = UIImage(named: "LightJacket5")
-        }
-        if items[indexPath.row].name == "Gloves" {
-            cell.imageView?.image = UIImage(named: "Gloves6")
-        }
-        if items[indexPath.row].name == "Running Tights" {
-            cell.imageView?.image = UIImage(named: "Tights7")
-        }
-        if items[indexPath.row].name == "Beanie" {
-            cell.imageView?.image = UIImage(named: "Beanie8")
-        }
-        if items[indexPath.row].name == "Baseball cap"{
-            cell.imageView?.image = UIImage(named: "Cap9")
-        }
-        if items[indexPath.row].name == "Sunglasses" {
-            cell.imageView?.image = UIImage(named: "Sunglasses10")
-        }
-        if items[indexPath.row].name == "Sunblock" {
-            cell.imageView?.image = UIImage(named: "Sunblock11")
-        }
-        if items[indexPath.row].name == "Reflective gear" {
-            cell.imageView?.image = UIImage(named: "Reflective13")
-        }
-        if items[indexPath.row].name == "Go Shirtless" {
-            cell.imageView?.image = UIImage(named: "Shirtless214")
-        }
-        if items[indexPath.row].name == "Track pants" {
-            cell.imageView?.image = UIImage(named: "Pants15")
-        }
-        
+//        if items[indexPath.row].name == "Tank Top" {
+//            cell.imageView?.image = UIImage(named: "TankTop1")
+//        }
+//        if items[indexPath.row].name == "Shorts" {
+//            cell.imageView?.image = UIImage(named: "Shorts2")
+//        }
+//        if items[indexPath.row].name == "Short-Sleeve T-Shirt" {
+//            cell.imageView?.image = UIImage(named: "ShortSleeveShirt3")
+//        }
+//        if items[indexPath.row].name == "Long-Sleeve T-Shirt" {
+//            cell.imageView?.image = UIImage(named: "LongSleeveShirt4")
+//        }
+//        if items[indexPath.row].name == "Jacket" {
+//            cell.imageView?.image = UIImage(named: "LightJacket5")
+//        }
+//        if items[indexPath.row].name == "Gloves" {
+//            cell.imageView?.image = UIImage(named: "Gloves6")
+//        }
+//        if items[indexPath.row].name == "Running Tights" {
+//            cell.imageView?.image = UIImage(named: "Tights7")
+//        }
+//        if items[indexPath.row].name == "Beanie" {
+//            cell.imageView?.image = UIImage(named: "Beanie8")
+//        }
+//        if items[indexPath.row].name == "Baseball cap"{
+//            cell.imageView?.image = UIImage(named: "Cap9")
+//        }
+//        if items[indexPath.row].name == "Sunglasses" {
+//            cell.imageView?.image = UIImage(named: "Sunglasses10")
+//        }
+//        if items[indexPath.row].name == "Sunblock" {
+//            cell.imageView?.image = UIImage(named: "Sunblock11")
+//        }
+//        if items[indexPath.row].name == "Reflective gear" {
+//            cell.imageView?.image = UIImage(named: "Reflective13")
+//        }
+//        if items[indexPath.row].name == "Go Shirtless" {
+//            cell.imageView?.image = UIImage(named: "Shirtless214")
+//        }
+//        if items[indexPath.row].name == "Track pants" {
+//            cell.imageView?.image = UIImage(named: "Pants15")
+//        }
+//        
         
         
         cell.textLabel?.text = items[indexPath.row].name + ":" + "\t\t" + items[indexPath.row].description
         
-        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
         
         

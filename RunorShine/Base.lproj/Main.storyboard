@@ -34,13 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLD-Yc-aCW">
-                                <rect key="frame" x="144" y="478" width="87" height="30"/>
-                                <state key="normal" title="Get My Gear"/>
-                                <connections>
-                                    <action selector="getCurrentWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mU2-7T-h4t"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-zD-IbP">
                                 <rect key="frame" x="158" y="426" width="59" height="29"/>
                                 <segments>
@@ -78,16 +71,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4Lu-nI-g4h" firstAttribute="top" secondItem="lqx-Jt-3wd" secondAttribute="bottom" constant="34" id="EmR-8C-qmE"/>
-                            <constraint firstItem="mLD-Yc-aCW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GPp-xk-xbd"/>
                             <constraint firstItem="uHE-zD-IbP" firstAttribute="top" secondItem="4Lu-nI-g4h" secondAttribute="bottom" constant="17" id="PmO-Ba-R43"/>
                             <constraint firstItem="gAM-30-xdx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QcO-uJ-YfP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mLD-Yc-aCW" secondAttribute="bottom" constant="159" id="WyU-t7-aTp"/>
                             <constraint firstItem="4Lu-nI-g4h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dQS-hn-96C"/>
                             <constraint firstItem="uHE-zD-IbP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dyD-rF-j80"/>
                             <constraint firstItem="lqx-Jt-3wd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fAh-oX-1JS"/>
                             <constraint firstItem="lqx-Jt-3wd" firstAttribute="top" secondItem="gAM-30-xdx" secondAttribute="bottom" constant="21" id="gVS-sG-csT"/>
                             <constraint firstItem="gAM-30-xdx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="km8-PI-poh"/>
-                            <constraint firstItem="mLD-Yc-aCW" firstAttribute="top" secondItem="uHE-zD-IbP" secondAttribute="bottom" constant="24" id="oih-MB-G27"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

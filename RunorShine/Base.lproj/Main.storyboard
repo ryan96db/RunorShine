@@ -34,14 +34,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLD-Yc-aCW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLD-Yc-aCW">
                                 <rect key="frame" x="144" y="478" width="87" height="30"/>
                                 <state key="normal" title="Get My Gear"/>
                                 <connections>
                                     <action selector="getCurrentWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mU2-7T-h4t"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-zD-IbP">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-zD-IbP">
                                 <rect key="frame" x="158" y="426" width="59" height="29"/>
                                 <segments>
                                     <segment title="ºC"/>
@@ -51,7 +51,7 @@
                                     <action selector="tempOption:" destination="BYZ-38-t0r" eventType="valueChanged" id="rtn-rx-ecc"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="lqx-Jt-3wd">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="lqx-Jt-3wd">
                                 <rect key="frame" x="99.5" y="326" width="176" height="29"/>
                                 <segments>
                                     <segment title="Light"/>
@@ -63,12 +63,12 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to dress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAM-30-xdx">
-                                <rect key="frame" x="129" y="240" width="117" height="21"/>
+                                <rect key="frame" x="129" y="284" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Display temperature in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lu-nI-g4h">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display temperature in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lu-nI-g4h">
                                 <rect key="frame" x="99" y="388" width="177" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="611"/>
+            <point key="canvasLocation" x="857" y="-636"/>
         </scene>
         <!--Weather-->
         <scene sceneID="sV1-Js-TBQ">
@@ -170,6 +170,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="rEF-ki-EzI">
                         <barButtonItem key="backBarButtonItem" title="Back" id="xQB-Uw-65v"/>
+                        <barButtonItem key="leftBarButtonItem" image="icons8-settings-30" style="plain" id="dIx-io-W9S">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="75" maxY="0.0"/>
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="l1u-Hc-zOI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="iyX-EB-iuN">
+                            <inset key="imageInsets" minX="75" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cityTextField" destination="J7V-bH-1I2" id="ixM-4s-5d4"/>
@@ -231,4 +242,7 @@
             <point key="canvasLocation" x="1614" y="29"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-settings-30" width="30" height="30"/>
+    </resources>
 </document>

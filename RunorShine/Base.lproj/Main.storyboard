@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ndl-FB-7Cr"/>
+                        <segue destination="539-C5-6WK" kind="relationship" relationship="rootViewController" id="2PL-vz-3ux"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75E-MD-bCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-810" y="27"/>
+            <point key="canvasLocation" x="-63" y="-32"/>
         </scene>
         <!--Run or Shine-->
         <scene sceneID="tne-QT-ifu">
@@ -34,14 +34,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLD-Yc-aCW">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLD-Yc-aCW">
                                 <rect key="frame" x="144" y="478" width="87" height="30"/>
                                 <state key="normal" title="Get My Gear"/>
                                 <connections>
                                     <action selector="getCurrentWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mU2-7T-h4t"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-zD-IbP">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-zD-IbP">
                                 <rect key="frame" x="158" y="426" width="59" height="29"/>
                                 <segments>
                                     <segment title="ºC"/>
@@ -51,7 +51,7 @@
                                     <action selector="tempOption:" destination="BYZ-38-t0r" eventType="valueChanged" id="rtn-rx-ecc"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="lqx-Jt-3wd">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="lqx-Jt-3wd">
                                 <rect key="frame" x="99.5" y="326" width="176" height="29"/>
                                 <segments>
                                     <segment title="Light"/>
@@ -63,12 +63,12 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to dress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAM-30-xdx">
-                                <rect key="frame" x="129" y="284" width="117" height="21"/>
+                                <rect key="frame" x="129" y="240" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display temperature in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lu-nI-g4h">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Display temperature in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lu-nI-g4h">
                                 <rect key="frame" x="99" y="388" width="177" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -94,13 +94,10 @@
                     <navigationItem key="navigationItem" title="Run or Shine" id="YQX-Ff-NvN">
                         <barButtonItem key="backBarButtonItem" title="Back" id="K95-2F-xmL"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="539-C5-6WK" kind="show" identifier="moveToCurrentWeather" id="cgE-7f-2jC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.200000000000003" y="35.532233883058474"/>
+            <point key="canvasLocation" x="-62" y="611"/>
         </scene>
         <!--Weather-->
         <scene sceneID="sV1-Js-TBQ">
@@ -171,6 +168,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zhH-Ot-yiu"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Weather" id="rEF-ki-EzI">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="xQB-Uw-65v"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="cityTextField" destination="J7V-bH-1I2" id="ixM-4s-5d4"/>
                         <outlet property="conditionTextField" destination="lAd-ZX-9jC" id="3Kl-GY-bZY"/>

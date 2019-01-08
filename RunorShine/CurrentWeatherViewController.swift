@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 
 var main = [String]()
@@ -31,14 +32,15 @@ var sunrise = 0.0
 var sunset = 0.0
 var current = 0.0
 
+var lat = 0.0
+var lon = 0.0
 
+var didFindLocation : Bool = true
 
-
-class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
     
-    var latitude = 0.0
-    var longitude = 0.0
+    
     
     var threshold = 0
     //Will either be -15, 0, or +15 depending on if the user chose to dress light, normal, or heavy.
@@ -60,11 +62,28 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var tableView: UITableView!
     
     
+    var locationManager: CLLocationManager!
+    
     
     override func viewDidLoad() {
     items.removeAll()
         
-       getWeather()
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            didFindLocation = false
+        }
+        
+        lat = locationManager.location?.coordinate.latitude ?? 0.0
+        lon = locationManager.location?.coordinate.longitude ?? 0.0
+        
+        
+        getWeather()
+        
         tableView.delegate = self
         tableView.dataSource = self
         print(threshold)
@@ -81,8 +100,31 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         // Do any additional setup after loading the view.
     }
     
+   
+    
+    
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error \(error)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
+        
+        // Call stopUpdatingLocation() to stop listening for location updates,
+        // otherwise this function will be called every time when user location changes.
+        if didFindLocation == false{
+            didFindLocation = true
+          
+            //            coordinates.append(CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            
+        }
+    }
     
     func getWeather() {
+        
         
         let openWeatherMapBaseURL = "https://api.openweathermap.org/data/2.5/weather?"
         let openWeatherMapAPIKey = "29a6f868beda8f74fc0ba8699c66b052"
@@ -167,6 +209,10 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
                             }
                             
                             DispatchQueue.main.async{
+                                
+                                
+                                
+                                
                                 
                                 tempConvertedToF = Int(((tempArray[0] - 273.15) * (9/5) + (32.0)))
                                 tempConvertedToC = Int((tempArray[0]-273.15))

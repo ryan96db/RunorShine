@@ -11,80 +11,78 @@ import UIKit
 
 
 
-//Defaults temperature to be displayed in ºF
-var degrees = 1
-
-//Defaults to dressing normal
-var dress = "Normal"
+let degreesKey = "Degrees"
+let dressKey = "Dress"
 
 
 class StartingViewController: UIViewController {
-
-
-
-    @IBAction func dressOption(_ sender: Any) {
-
-        if (sender as AnyObject).selectedSegmentIndex == 0 {
-            dress = "Light"
-            print("User wants to dress lightly")
-
-
+    
+    override func viewDidLoad() {
+        if let tempDisplay = UserDefaults.standard.value(forKey: degreesKey) {
+            tempOption.selectedSegmentIndex = tempDisplay as! Int
+            print(tempDisplay)
+            degrees = tempDisplay as? Int ?? 1
+            //Saves User temperature preference
         }
-        //If user changes from default, then comes back to normal
+        if let dressPreference = UserDefaults.standard.value(forKey: dressKey) {
+            dressOption.selectedSegmentIndex = dressPreference as! Int
+            print(dressPreference)
+            dress = dressPreference as? Int ?? 1
+            //Saves User dress preference
+        }
+        
+    }
+    
+    @IBOutlet weak var dressOption: UISegmentedControl!
+    
+    @IBAction func dressOptionChanged(_ sender: Any) {
+        if (sender as AnyObject).selectedSegmentIndex == 0 {
+            dress = 0
+            print("User wants to dress lightly")
+            print("Dress:\(dress)")
+            
+            
+        }
+            //If user changes from default, then comes back to normal
         else if (sender as AnyObject).selectedSegmentIndex == 1 {
-            dress = "Normal"
+            dress = 1
             print("User wants to dress normal")
-            print(dress)
+            print("Dress:\(dress)")
             
         }
         else if (sender as AnyObject).selectedSegmentIndex == 2 {
-            dress = "Heavy"
+            dress = 2
             print("User wants to dress heavy")
-            print(dress)
+            print("Dress:\(dress)")
         }
-
+        
+        UserDefaults.standard.set(dress, forKey: dressKey)
     }
     
-
-    @IBAction func tempOption(_ sender: Any) {
-
-        if (sender as AnyObject).selectedSegmentIndex == 0 {
-            degrees = 0
-            print("User wants ºC")
-            print(degrees)
-        }
-        else {
-            //If user changes to ºC, then changes it back to ºF
-            print("User wants ºF")
-            degrees = 1
-            print(degrees)
-        }
-
-    }
-
-
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    @IBOutlet weak var tempOption: UISegmentedControl!
+    
+    @IBAction func tempOptionChanged(_ sender: Any) {
         
-        if (segue.identifier == "moveToCurrentWeather") {
-
-             let currentWeatherVC = segue.destination as! CurrentWeatherViewController
-            switch dress {
-
-            case "Light":
-                currentWeatherVC.threshold = -15
-            case "Heavy":
-                currentWeatherVC.threshold = 15
-            default:
-                currentWeatherVC.threshold = 0
-
-            }
-           
-
-
-
-        }
+                if (sender as AnyObject).selectedSegmentIndex == 0 {
+                    degrees = 0
+                    print("User wants ºC")
+                    print(degrees)
+                }
+                else {
+                    //If user changes to ºC, then changes it back to ºF
+                    print("User wants ºF")
+                    degrees = 1
+                    print(degrees)
+                }
+        
+        UserDefaults.standard.set(degrees, forKey: degreesKey)
+        
+        
     }
+    
+   
+
+            
 
 }
 

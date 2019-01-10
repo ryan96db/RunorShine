@@ -37,18 +37,24 @@ var lon = 0.0
 
 var didFindLocation : Bool = true
 
+//Defaults temperature to be shown in ºF
+var degrees = 1
+
+//Defaults dress to be Normal
+var dress = 1
+
+
+
 class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
-    
-    
+    //Defaults to Normal Threshold
+    //Will either be -15, 0, or +15 depending on if the user chose to dress light, normal, or heavy. Defaults to 0.
     
     var threshold = 0
-    //Will either be -15, 0, or +15 depending on if the user chose to dress light, normal, or heavy.
+    
+    
+    
 
-    
-    
-    
-    
     @IBOutlet weak var cityTextField: UILabel!
     
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -64,9 +70,15 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     
     var locationManager: CLLocationManager!
     
+    @IBAction func refreshWeather(_ sender: Any) {
+        items.removeAll()
+        getThreshold()
+        getWeather()
+    }
     
     override func viewDidLoad() {
     items.removeAll()
+        
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -81,7 +93,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         lat = locationManager.location?.coordinate.latitude ?? 0.0
         lon = locationManager.location?.coordinate.longitude ?? 0.0
         
-        
+        getThreshold()
         getWeather()
         
         tableView.delegate = self
@@ -94,17 +106,23 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.tableFooterView = UIView(frame: .zero)
         
         super.viewDidLoad()
+       
         
         
-
         // Do any additional setup after loading the view.
     }
     
-   
-    
-    
-    
-    
+    func getThreshold() {
+        switch dress {
+            
+        case 0:
+            threshold = -15
+        case 2:
+            threshold = 15
+        default:
+            threshold = 0
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
@@ -209,10 +227,6 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
                             }
                             
                             DispatchQueue.main.async{
-                                
-                                
-                                
-                                
                                 
                                 tempConvertedToF = Int(((tempArray[0] - 273.15) * (9/5) + (32.0)))
                                 tempConvertedToC = Int((tempArray[0]-273.15))

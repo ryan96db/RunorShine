@@ -164,12 +164,16 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
                                 
                                 tempConvertedToF = Int(((tempArray[0] - 273.15) * (9/5) + (32.0)))
                                 tempConvertedToC = Int((tempArray[0]-273.15))
+                                
+                                
                                 if degrees == 1 {
                                     tempAsString = String(tempConvertedToF)
                                 }
+                                    
                                 else {
                                     tempAsString = String(tempConvertedToC)
                                 }
+                                    
                                 
                                 mainArray.append(tempAsString)
                                 

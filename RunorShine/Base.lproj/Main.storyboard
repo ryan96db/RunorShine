@@ -48,7 +48,7 @@
                                     <segment title="ºF"/>
                                 </segments>
                                 <connections>
-                                    <action selector="tempOption:" destination="BYZ-38-t0r" eventType="valueChanged" id="rtn-rx-ecc"/>
+                                    <action selector="tempOptionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="HT3-ro-ozw"/>
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="lqx-Jt-3wd">
@@ -59,7 +59,7 @@
                                     <segment title="Heavy"/>
                                 </segments>
                                 <connections>
-                                    <action selector="dressOption:" destination="BYZ-38-t0r" eventType="valueChanged" id="hsi-PS-Dpw"/>
+                                    <action selector="dressOptionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="QBa-Ql-raS"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to dress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAM-30-xdx">
@@ -95,6 +95,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="K95-2F-xmL"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="dressOption" destination="lqx-Jt-3wd" id="mZ0-K1-rgc"/>
+                        <outlet property="tempOption" destination="uHE-zD-IbP" id="DJG-gg-FJV"/>
                         <segue destination="539-C5-6WK" kind="show" identifier="moveToCurrentWeather" id="cgE-7f-2jC"/>
                     </connections>
                 </viewController>

@@ -21,41 +21,47 @@ var didFindLocation : Bool = true
 var coordinates = [CLLocationCoordinate2D]()
 
 //Defaults temperature to be displayed in ºF
-var degrees = 1
+var degrees = -1
 
 //Defaults to dressing normal
-var dress = "Normal"
+
+
 
 
 class StartingViewController: UIViewController, CLLocationManagerDelegate {
-
     
-   
-    @IBAction func dressOption(_ sender: Any) {
+    var dress = -1
+    
+    let degreesKey = "Degrees"
+    let dressKey = "Dress"
+    
+    @IBAction func dressOptionChanged(_ sender: Any) {
         
         if (sender as AnyObject).selectedSegmentIndex == 0 {
-            dress = "Light"
+            dress = 0
             print("User wants to dress lightly")
+            print("Dress:\(dress)")
             
             
         }
-        //If user changes from default, then comes back to normal
+            //If user changes from default, then comes back to normal
         else if (sender as AnyObject).selectedSegmentIndex == 1 {
-            dress = "Normal"
+            dress = 1
             print("User wants to dress normal")
-            print(dress)
+            print("Dress:\(dress)")
             
         }
         else if (sender as AnyObject).selectedSegmentIndex == 2 {
-            dress = "Heavy"
+            dress = 2
             print("User wants to dress heavy")
-            print(dress)
+            print("Dress:\(dress)")
         }
-    
+        
+         UserDefaults.standard.set(dress, forKey: dressKey)
+        
     }
     
- 
-    @IBAction func tempOption(_ sender: Any) {
+    @IBAction func tempOptionChanged(_ sender: Any) {
         
         if (sender as AnyObject).selectedSegmentIndex == 0 {
             degrees = 0
@@ -69,19 +75,39 @@ class StartingViewController: UIViewController, CLLocationManagerDelegate {
             print(degrees)
         }
         
+        UserDefaults.standard.set(degrees, forKey: degreesKey)
+
     }
     
+    @IBOutlet weak var dressOption: UISegmentedControl!
     
+    @IBOutlet weak var tempOption: UISegmentedControl!
     
     var locationManager: CLLocationManager!
     
+    
     override func viewDidLoad() {
         
-        //Defaults to dress normal
-        print(dress)
-        //Defaults temperature to be displayed in ºF
-        print(degrees)
+//        //Defaults to dress normal
+//        print(dress)
+//        //Defaults temperature to be displayed in ºF
+//        print(degrees)
         super.viewDidLoad()
+        
+        if let tempDisplay = UserDefaults.standard.value(forKey: degreesKey) {
+            tempOption.selectedSegmentIndex = tempDisplay as! Int
+            print(tempDisplay)
+            degrees = tempDisplay as? Int ?? 1
+            //Saves User temperature preference
+        }
+        if let dressPreference = UserDefaults.standard.value(forKey: dressKey) {
+            dressOption.selectedSegmentIndex = dressPreference as! Int
+            print(dressPreference)
+            dress = dressPreference as? Int ?? 1
+            //Saves User dress preference
+
+        }
+        
         
     }
     
@@ -137,14 +163,22 @@ class StartingViewController: UIViewController, CLLocationManagerDelegate {
              let currentWeatherVC = segue.destination as! CurrentWeatherViewController
             switch dress {
                 
-            case "Light":
+            case 0:
                 currentWeatherVC.threshold = -15
-            case "Heavy":
+            case 2:
                 currentWeatherVC.threshold = 15
             default:
                 currentWeatherVC.threshold = 0
+            
+           
+            
                 
             }
+            
+            
+            
+            
+            
            
             
             

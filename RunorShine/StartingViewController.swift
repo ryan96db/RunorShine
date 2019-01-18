@@ -15,7 +15,12 @@ let degreesKey = "Degrees"
 let dressKey = "Dress"
 
 
+
 class StartingViewController: UIViewController {
+    
+    var dress: Int = Int()
+    
+    var degrees: Int = Int()
     
     override func viewDidLoad() {
         if let tempDisplay = UserDefaults.standard.value(forKey: degreesKey) {

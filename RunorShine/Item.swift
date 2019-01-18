@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Item {
     
@@ -36,9 +37,59 @@ class RunningGear {
     let items10 = Item(name: "Sunglasses", description: "Lightweight glasses with UV protection will help shield your eyes from sun, rain, snow, or wind.")
     let items11 = Item(name: "Sunblock", description: "Use at least 30 SPF sunblock to help prevent sunburn and exposure to harmful UV rays.")
     let items12 = Item(name: "Impossible!", description: "It can't be this hot and snowy. Try again.")
-    let items13 = Item(name: "Reflective gear", description: "Wearing a reflective vest, shirt, or anything else with reflective surfaces can help people see you at night or in the fog. Safety should always be your number one priority when running in these conditions.")
+    let items13 = Item(name: "Reflective gear", description: "Wearing a reflective vest, shirt, or anything else with reflective surfaces can help people see you at night or in the fog.")
     var items14 = Item(name: "Go Shirtless", description: "")
     let items15 = Item(name: "Track pants", description: "A pair of track pants over some running tights will provide maximum warmth in colder weather.")
+    
+    func getItemImages(itemName: String) -> UIImage {
+        switch itemName {
+            
+        case "Tank Top":
+            return UIImage(named: "TankTop1")!
+            
+        case "Shorts":
+            return UIImage(named: "Shorts2")!
+            
+        case "Short-Sleeve T-Shirt":
+            return UIImage(named: "ShortSleeveShirt3")!
+            
+        case "Long-Sleeve T-Shirt":
+            return UIImage(named: "LongSleeveShirt4")!
+            
+        case "Jacket":
+            return UIImage(named: "LightJacket5")!
+            
+        case "Gloves":
+            return UIImage(named: "Gloves6")!
+            
+        case "Running Tights":
+            return UIImage(named: "Tights7")!
+            
+        case "Beanie":
+            return UIImage(named: "Beanie8")!
+            
+        case "Baseball cap":
+            return UIImage(named: "Cap9")!
+            
+        case "Sunglasses":
+            return UIImage(named: "Sunglasses10")!
+            
+        case "Sunblock":
+            return UIImage(named: "Sunblock11")!
+            
+        case "Reflective gear":
+            return UIImage(named: "Reflective13")!
+            
+        case "Go Shirtless":
+            return UIImage(named: "Shirtless214")!
+            
+        case "Track pants":
+            return UIImage(named: "Pants15")!
+            
+        default:
+            return UIImage(named: "Shorts2")!
+        }
+    }//End of getItemImages()
     
     
     

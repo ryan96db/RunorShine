@@ -36,8 +36,14 @@ class StartingViewController: UIViewController {
             //Saves User dress preference
         }
         
+        self.navigationItem.hidesBackButton = true
+        
     }
     
+    @IBAction func doneWithSettings(_ sender: Any) {
+        
+        
+    }
     @IBOutlet weak var dressOption: UISegmentedControl!
     
     @IBAction func dressOptionChanged(_ sender: Any) {

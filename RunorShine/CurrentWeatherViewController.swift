@@ -49,16 +49,16 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var tableView: UITableView!
     
+    var refreshControl = UIRefreshControl()
     
     var locationManager: CLLocationManager!
     
-    @IBAction func refreshWeather(_ sender: Any) {
-        items.removeAll()
+    @objc func refreshWeather(_ sender: Any) {
+        print("refreshing...")
         getWeather()
     }
     
     override func viewDidLoad() {
-    items.removeAll()
         
         
         locationManager = CLLocationManager()
@@ -79,6 +79,19 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.tableFooterView = UIView()
         
         super.viewDidLoad()
+        
+        //Add Refresh Conrol to Table View
+        if #available(iOS 10.0, *) {
+            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            self.tableView.refreshControl = refreshControl
+        }
+        else {
+            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            tableView.addSubview(refreshControl)
+        }
+        
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshWeather(_:)), for: .valueChanged)
       
         // Do any additional setup after loading the view.
     }
@@ -128,6 +141,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     
     func getWeather() {
         
+        items.removeAll()
         mainArray.removeAll()
         dayNightArray.removeAll()
         cityArray.removeAll()
@@ -248,6 +262,10 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
                         self.tableView.delegate = self
                         self.tableView.dataSource = self
                        self.tableView.reloadData()
+                        
+                            
+                            self.refreshControl.endRefreshing()
+                            
                         }
                     }//End of Do statement
                     

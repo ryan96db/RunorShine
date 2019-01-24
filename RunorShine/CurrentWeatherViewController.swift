@@ -141,7 +141,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     
     func getWeather() {
         
-        items.removeAll()
+        
         mainArray.removeAll()
         dayNightArray.removeAll()
         cityArray.removeAll()
@@ -283,6 +283,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     }//End of getWeather
 
     func getItems() {
+        items.removeAll()
 
         tempConvertedToF = tempConvertedToF - (self.getThreshold())
 

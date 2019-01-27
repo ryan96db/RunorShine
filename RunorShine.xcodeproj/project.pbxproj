@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0DF6FB21FE60D8001AE85F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0DF6FA21FE60D8001AE85F /* DataManager.swift */; };
 		3A74328821D3294200A04DA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A74328721D3294200A04DA2 /* AppDelegate.swift */; };
 		3A74328D21D3294200A04DA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A74328B21D3294200A04DA2 /* Main.storyboard */; };
 		3A74329021D3294200A04DA2 /* RunorShine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A74328E21D3294200A04DA2 /* RunorShine.xcdatamodeld */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0DF6FA21FE60D8001AE85F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3A74328421D3294200A04DA2 /* RunorShine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunorShine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A74328721D3294200A04DA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A74328C21D3294200A04DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				3A74328721D3294200A04DA2 /* AppDelegate.swift */,
 				3A74328B21D3294200A04DA2 /* Main.storyboard */,
 				3A74329C21D329C900A04DA2 /* StartingViewController.swift */,
+				3A0DF6FA21FE60D8001AE85F /* DataManager.swift */,
 				3AB0DDC821EFF161004EE230 /* CityNameTableViewCell.swift */,
 				3AB0DDCC21F02C1F004EE230 /* WeatherIconTableViewCell.swift */,
 				3AB0DDCE21F10D0A004EE230 /* ItemTableViewCell.swift */,
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A75F33221D4159C00C707C0 /* Item.swift in Sources */,
+				3A0DF6FB21FE60D8001AE85F /* DataManager.swift in Sources */,
 				3A74328821D3294200A04DA2 /* AppDelegate.swift in Sources */,
 				3AB0DDCF21F10D0A004EE230 /* ItemTableViewCell.swift in Sources */,
 				3A74329D21D329C900A04DA2 /* StartingViewController.swift in Sources */,

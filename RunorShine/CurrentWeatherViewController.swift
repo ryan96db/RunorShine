@@ -92,11 +92,14 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         
         // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(refreshWeather(_:)), for: .valueChanged)
+        
+        DataManager.shared.weatherVC = self
       
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
     }
    
     func getThreshold() -> Int {

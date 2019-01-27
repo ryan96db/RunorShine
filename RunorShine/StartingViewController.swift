@@ -18,9 +18,12 @@ let dressKey = "Dress"
 
 class StartingViewController: UIViewController {
     
+    
+    
     var dress: Int = Int()
     
     var degrees: Int = Int()
+    
     
     override func viewDidLoad() {
         if let tempDisplay = UserDefaults.standard.value(forKey: degreesKey) {
@@ -36,13 +39,16 @@ class StartingViewController: UIViewController {
             //Saves User dress preference
         }
         
+        
         self.navigationItem.hidesBackButton = true
         
     }
     
     @IBAction func doneWithSettings(_ sender: Any) {
         
+        DataManager.shared.weatherVC.getWeather()
         
+        self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var dressOption: UISegmentedControl!
     

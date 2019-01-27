@@ -11,10 +11,8 @@ import UIKit
 
 struct Item {
     
-    
     var name = ""
     var description = ""
-    
     
 }
 

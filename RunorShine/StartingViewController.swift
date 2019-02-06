@@ -39,9 +39,18 @@ class StartingViewController: UIViewController {
             //Saves User dress preference
         }
         
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background.png")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         
         self.navigationItem.hidesBackButton = true
         
+//        for family in UIFont.familyNames.sorted() {
+//            let names = UIFont.fontNames(forFamilyName: family)
+//            print("Family: \(family) Font names: \(names)")
+//        }
     }
     
     @IBAction func doneWithSettings(_ sender: Any) {

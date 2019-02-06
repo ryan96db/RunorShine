@@ -113,7 +113,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0da-v7-mfd" secondAttribute="height" multiplier="125:201" id="GLT-W4-xb1"/>
                                 </constraints>
-                                <color key="sectionIndexBackgroundColor" red="0.0" green="0.8224349567" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.35286453366279602" green="0.80719470977783203" blue="0.97357207536697388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cityName" id="HVa-d6-Tew" customClass="CityNameTableViewCell" customModule="RunorShine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -216,7 +216,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="TW8-gz-xQR"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="cNz-Fn-MuJ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -269,12 +269,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="rEF-ki-EzI">
                         <barButtonItem key="backBarButtonItem" title="Back" id="xQB-Uw-65v"/>
-                        <barButtonItem key="leftBarButtonItem" image="icons8-settings-30" style="plain" id="dIx-io-W9S">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="75" maxY="0.0"/>
-                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="0.0"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Settings" id="kGi-qW-zN9">
                             <connections>
-                                <segue destination="J5m-HQ-ug9" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="l1u-Hc-zOI"/>
+                                <segue destination="J5m-HQ-ug9" kind="presentation" id="PFq-ba-2Rb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -307,6 +304,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-settings-30" width="30" height="30"/>
+        <image name="Settings" width="46" height="46"/>
     </resources>
 </document>

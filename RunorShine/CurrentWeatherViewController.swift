@@ -18,7 +18,6 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
 
     var didFindLocation : Bool = true
 
-    
 
     var main = [String]()
     var temp = [Double]()
@@ -76,6 +75,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         
         getWeather()
         
+        
         self.tableView.tableFooterView = UIView()
         
         super.viewDidLoad()
@@ -94,6 +94,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         refreshControl.addTarget(self, action: #selector(refreshWeather(_:)), for: .valueChanged)
         
         DataManager.shared.weatherVC = self
+        
       
         // Do any additional setup after loading the view.
     }
@@ -469,17 +470,27 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     //    prints out each element
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let customFont = UIFont(name: "MavenProRegular", size: UIFont.labelFontSize) else {
+            fatalError("""
+Failed to load the "MavenProRegular" font.
+Make sure the font file is included in the project and that the font name is spelled correctly.
+"""
+            )
+            
+        }
+        
  
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cityName") as! CityNameTableViewCell
-            
+            self.navigationItem.title = cityArray.last!
             cell.cityTextField.text! = cityArray.last!
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.contentView.backgroundColor = self.getBackgroundColor()
-            
-            
+
+
             return cell
-           
+
         }
         
         if indexPath.row == 1 {
@@ -515,15 +526,23 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
             let cell = tableView.dequeueReusableCell(withIdentifier: "items", for: indexPath) as! ItemTableViewCell
             
             cell.itemLabel.text = items[indexPath.row - 3].name
+            
+            cell.itemLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+            cell.itemLabel.adjustsFontForContentSizeCategory = true
+            
             cell.itemImage.image = theGear.getItemImages(itemName: items[indexPath.row - 3].name)
             cell.descriptionLabel.text = items[indexPath.row - 3].description
             print(indexPath.row)
             
+//            cell.descriptionLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+           
             
-            cell.itemLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-            cell.contentView.backgroundColor = UIColor.cyan
+//            cell.itemLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+//            cell.contentView.backgroundColor = UIColor.cyan
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             self.tableView.tableFooterView = UIView(frame: .zero)
+          
+            cell.contentView.backgroundColor = UIColor(patternImage: UIImage(named: "Background.png")!)
             
             return cell
         }

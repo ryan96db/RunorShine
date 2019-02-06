@@ -13,6 +13,7 @@
 		3A74329021D3294200A04DA2 /* RunorShine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A74328E21D3294200A04DA2 /* RunorShine.xcdatamodeld */; };
 		3A74329D21D329C900A04DA2 /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A74329C21D329C900A04DA2 /* StartingViewController.swift */; };
 		3A75F33221D4159C00C707C0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A75F33121D4159B00C707C0 /* Item.swift */; };
+		3A7F18882208FB9700BCDBB4 /* mavenpro-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A7F18872208FB9700BCDBB4 /* mavenpro-regular.ttf */; };
 		3AA2FBD021E074A1003E0578 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA2FBCF21E074A1003E0578 /* Launch Screen.storyboard */; };
 		3AA2FC1821E460D5003E0578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AA2FC1721E460D5003E0578 /* Assets.xcassets */; };
 		3AB0DDC921EFF162004EE230 /* CityNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0DDC821EFF161004EE230 /* CityNameTableViewCell.swift */; };
@@ -31,6 +32,7 @@
 		3A74329621D3294E00A04DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A74329C21D329C900A04DA2 /* StartingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
 		3A75F33121D4159B00C707C0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		3A7F18872208FB9700BCDBB4 /* mavenpro-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mavenpro-regular.ttf"; sourceTree = "<group>"; };
 		3AA2FBCF21E074A1003E0578 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3AA2FC1721E460D5003E0578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB0DDC821EFF161004EE230 /* CityNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNameTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,8 +86,17 @@
 				3A74329621D3294E00A04DA2 /* Info.plist */,
 				3A74328E21D3294200A04DA2 /* RunorShine.xcdatamodeld */,
 				3AA2FBCF21E074A1003E0578 /* Launch Screen.storyboard */,
+				3A7F18862208FB9700BCDBB4 /* fonts */,
 			);
 			path = RunorShine;
+			sourceTree = "<group>";
+		};
+		3A7F18862208FB9700BCDBB4 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3A7F18872208FB9700BCDBB4 /* mavenpro-regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 				3AA2FC1821E460D5003E0578 /* Assets.xcassets in Resources */,
 				3AA2FBD021E074A1003E0578 /* Launch Screen.storyboard in Resources */,
 				3A74328D21D3294200A04DA2 /* Main.storyboard in Resources */,
+				3A7F18882208FB9700BCDBB4 /* mavenpro-regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

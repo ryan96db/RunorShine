@@ -444,7 +444,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         
         if current >= sunrise && current < sunset {
             print(itIsDayLight)
-            color = UIColor.blue
+            color = UIColor(red: 0.24, green: 0.56, blue: 0.72, alpha: 1)
         }
         else {
             itIsDayLight = false
@@ -487,6 +487,7 @@ Make sure the font file is included in the project and that the font name is spe
             cell.cityTextField.text! = cityArray.last!
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.contentView.backgroundColor = self.getBackgroundColor()
+            cell.cityTextField.font = UIFont(name: "MavenProRegular", size: 30)
 
 
             return cell
@@ -511,6 +512,8 @@ Make sure the font file is included in the project and that the font name is spe
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentWeather") as! CurrentWeatherTableViewCell
             
             print(mainArray.last!)
+            cell.tempTextField.font = UIFont(name: "MavenProRegular", size: 45)
+            cell.conditionTextField.font = UIFont(name: "MavenProRegular", size: 23)
                 cell.tempTextField.text! = mainArray.last! + "º"
             cell.conditionTextField.text! = self.conditionTextField
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
@@ -527,22 +530,21 @@ Make sure the font file is included in the project and that the font name is spe
             
             cell.itemLabel.text = items[indexPath.row - 3].name
             
-            cell.itemLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+            
             cell.itemLabel.adjustsFontForContentSizeCategory = true
             
             cell.itemImage.image = theGear.getItemImages(itemName: items[indexPath.row - 3].name)
             cell.descriptionLabel.text = items[indexPath.row - 3].description
             print(indexPath.row)
-            
-//            cell.descriptionLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+            cell.descriptionLabel.font = UIFont(name: "MavenProRegular", size: 15)
            
             
-//            cell.itemLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+            cell.itemLabel.font = UIFont(name: "MavenProRegular", size: 17)
 //            cell.contentView.backgroundColor = UIColor.cyan
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             self.tableView.tableFooterView = UIView(frame: .zero)
           
-            cell.contentView.backgroundColor = UIColor(patternImage: UIImage(named: "Background.png")!)
+            cell.contentView.backgroundColor = UIColor.lightGray
             
             return cell
         }

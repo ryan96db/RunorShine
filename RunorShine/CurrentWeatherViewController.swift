@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import Reachability
+
 
 
 
@@ -46,6 +48,8 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     var conditionTextField = ""
     var tempTextField = ""
     
+    var airplane = false
+    
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl = UIRefreshControl()
@@ -53,12 +57,16 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     var locationManager: CLLocationManager!
     
     @objc func refreshWeather(_ sender: Any) {
-        print("refreshing...")
-        getWeather()
+        if airplane == false
+        {
+            print("refreshing...")
+            getWeather()
+        }
     }
     
+   var internetReachability = Reachability()
+    
     override func viewDidLoad() {
-        
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -72,37 +80,72 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
         
         lat = locationManager.location?.coordinate.latitude ?? 0.0
         lon = locationManager.location?.coordinate.longitude ?? 0.0
+        if (lat == 0.0 && lon == 0.0)
+        {
+            print("Could not find location. Please try again.")
+        }
         
+        if airplane == false
+        {
         getWeather()
         
+            self.tableView.tableFooterView = UIView()
+            
+            super.viewDidLoad()
+            
+            //Add Refresh Conrol to Table View
+            if #available(iOS 10.0, *) {
+                refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+                self.tableView.refreshControl = refreshControl
+            }
+            else {
+                refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+                tableView.addSubview(refreshControl)
+            }
+            
+            // Configure Refresh Control
+            refreshControl.addTarget(self, action: #selector(refreshWeather(_:)), for: .valueChanged)
+            
+            DataManager.shared.weatherVC = self
+            
+            
+            // Do any additional setup after loading the view.
         
-        self.tableView.tableFooterView = UIView()
-        
-        super.viewDidLoad()
-        
-        //Add Refresh Conrol to Table View
-        if #available(iOS 10.0, *) {
-            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-            self.tableView.refreshControl = refreshControl
         }
         else {
-            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-            tableView.addSubview(refreshControl)
+            print ("No connection.")
         }
         
-        // Configure Refresh Control
-        refreshControl.addTarget(self, action: #selector(refreshWeather(_:)), for: .valueChanged)
-        
-        DataManager.shared.weatherVC = self
-        
-      
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: internetReachability)
+        do {
+            try internetReachability?.startNotifier()
+        }
+        catch{
+            print("Could not start reachability notifier")
+        }
+        
     }
    
+    @objc func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        switch reachability.connection {
+        case .wifi:
+            print("Reachable via Wifi")
+            airplane = false
+        case .cellular:
+            print("Reachable via Cellular")
+            airplane = false
+        case .none:
+            print("Network not reachable")
+            airplane = true
+            
+    }
+    }
+    
     func getThreshold() -> Int {
        
         //Will either be -15, 0, or +15 depending on if the user chose to dress light, normal, or heavy.
@@ -468,7 +511,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     //    prints out each element
-    
+   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let customFont = UIFont(name: "MavenProRegular", size: UIFont.labelFontSize) else {
@@ -482,6 +525,7 @@ Make sure the font file is included in the project and that the font name is spe
         
  
         if indexPath.row == 0 {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "cityName") as! CityNameTableViewCell
             self.navigationItem.title = cityArray.last!
             cell.cityTextField.text! = cityArray.last!
@@ -491,6 +535,7 @@ Make sure the font file is included in the project and that the font name is spe
 
 
             return cell
+            
 
         }
         
@@ -507,11 +552,14 @@ Make sure the font file is included in the project and that the font name is spe
             self.tableView.tableFooterView = UIView(frame: .zero)
             return cell
             
+            
         }
+        
         if indexPath.row == 2 {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentWeather") as! CurrentWeatherTableViewCell
             
-            print(mainArray.last!)
+
             cell.tempTextField.font = UIFont(name: "MavenProRegular", size: 45)
             cell.conditionTextField.font = UIFont(name: "MavenProRegular", size: 23)
                 cell.tempTextField.text! = mainArray.last! + "º"
@@ -523,9 +571,11 @@ Make sure the font file is included in the project and that the font name is spe
             
             return cell
             
+            
         }
         
         else {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "items", for: indexPath) as! ItemTableViewCell
             
             cell.itemLabel.text = items[indexPath.row - 3].name
@@ -539,7 +589,9 @@ Make sure the font file is included in the project and that the font name is spe
             cell.descriptionLabel.font = UIFont(name: "MavenProRegular", size: 15)
            
             
-            cell.itemLabel.font = UIFont(name: "MavenProRegular", size: 17)
+            cell.itemLabel.font = UIFont(name: "MavenProRegular", size: 18)
+            
+            
 //            cell.contentView.backgroundColor = UIColor.cyan
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             self.tableView.tableFooterView = UIView(frame: .zero)
@@ -547,11 +599,12 @@ Make sure the font file is included in the project and that the font name is spe
             cell.contentView.backgroundColor = UIColor.lightGray
             
             return cell
+        
         }
-    
         
         return UITableViewCell()
         
+    
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

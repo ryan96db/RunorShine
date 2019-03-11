@@ -226,8 +226,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7U-dE-7qB">
-                                                    <rect key="frame" x="156" y="42" width="63" height="63"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e7U-dE-7qB">
+                                                    <rect key="frame" x="156" y="35.5" width="63" height="63"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="e7U-dE-7qB" secondAttribute="height" multiplier="1:1" id="Sws-zh-455"/>
                                                         <constraint firstAttribute="height" constant="63" id="d6P-Vg-tyF"/>
@@ -243,6 +243,7 @@
                                                 <constraint firstItem="e7U-dE-7qB" firstAttribute="top" secondItem="DHa-MK-UFs" secondAttribute="bottom" constant="7.5" id="IFN-fD-0MS"/>
                                                 <constraint firstItem="Vxo-HW-hPH" firstAttribute="centerX" secondItem="t2Z-s5-zyw" secondAttribute="centerX" id="JG8-Zf-pKX"/>
                                                 <constraint firstItem="Vxo-HW-hPH" firstAttribute="top" secondItem="e7U-dE-7qB" secondAttribute="bottom" constant="8" id="Lnq-NV-s4a"/>
+                                                <constraint firstItem="e7U-dE-7qB" firstAttribute="centerY" secondItem="t2Z-s5-zyw" secondAttribute="centerY" id="Neb-nF-uCw"/>
                                                 <constraint firstItem="DHa-MK-UFs" firstAttribute="top" secondItem="t2Z-s5-zyw" secondAttribute="top" constant="6" id="YNf-lB-cbX"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vxo-HW-hPH" secondAttribute="trailing" constant="15" id="nkI-lg-pJN"/>
                                                 <constraint firstItem="e7U-dE-7qB" firstAttribute="top" secondItem="DHa-MK-UFs" secondAttribute="bottom" constant="7.5" id="qEg-Jo-gnP"/>
@@ -269,7 +270,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="rEF-ki-EzI">
                         <barButtonItem key="backBarButtonItem" title="Back" id="xQB-Uw-65v"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Settings" id="kGi-qW-zN9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="settings" id="kGi-qW-zN9">
                             <connections>
                                 <segue destination="J5m-HQ-ug9" kind="presentation" id="PFq-ba-2Rb"/>
                             </connections>
@@ -304,6 +305,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Settings" width="46" height="46"/>
+        <image name="settings" width="75" height="75"/>
     </resources>
 </document>

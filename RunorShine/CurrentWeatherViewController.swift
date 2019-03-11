@@ -116,6 +116,8 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
             print ("No connection.")
         }
         
+        UIScreen.main.scale
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -586,10 +588,10 @@ Make sure the font file is included in the project and that the font name is spe
             cell.itemImage.image = theGear.getItemImages(itemName: items[indexPath.row - 3].name)
             cell.descriptionLabel.text = items[indexPath.row - 3].description
             print(indexPath.row)
-            cell.descriptionLabel.font = UIFont(name: "MavenProRegular", size: 15)
+            cell.descriptionLabel.font = UIFont(name: "MavenProRegular", size: 20)
            
             
-            cell.itemLabel.font = UIFont(name: "MavenProRegular", size: 18)
+            cell.itemLabel.font = UIFont(name: "MavenProRegular", size: 24)
             
             
 //            cell.contentView.backgroundColor = UIColor.cyan
@@ -607,12 +609,17 @@ Make sure the font file is included in the project and that the font name is spe
     
     }
     
+    // Screen height
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 40
         }
         else if indexPath.row > 2 {
-            return 185.0
+            return self.screenHeight / (CGFloat(Float(items.count) + 0.7))
         }
         else {
             return 100

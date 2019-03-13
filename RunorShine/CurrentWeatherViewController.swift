@@ -68,6 +68,7 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -116,7 +117,6 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
             print ("No connection.")
         }
         
-        UIScreen.main.scale
         
     }
     
@@ -525,11 +525,12 @@ Make sure the font file is included in the project and that the font name is spe
             
         }
         
+        
  
         if indexPath.row == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cityName") as! CityNameTableViewCell
-            self.navigationItem.title = cityArray.last!
+            
             cell.cityTextField.text! = cityArray.last!
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.contentView.backgroundColor = self.getBackgroundColor()
@@ -588,10 +589,16 @@ Make sure the font file is included in the project and that the font name is spe
             cell.itemImage.image = theGear.getItemImages(itemName: items[indexPath.row - 3].name)
             cell.descriptionLabel.text = items[indexPath.row - 3].description
             print(indexPath.row)
-            cell.descriptionLabel.font = UIFont(name: "MavenProRegular", size: 20)
+            let relativeFontConstant1: CGFloat = 0.020
+            let relativeFontConstant2: CGFloat = 0.030
+            var screenSize = self.view.frame.height
+            var fontSize1 = relativeFontConstant1 * screenSize
+            var fontSize2 = relativeFontConstant2 * screenSize
+            
+            cell.descriptionLabel.font = UIFont(name: "MavenProRegular", size: fontSize1)
            
             
-            cell.itemLabel.font = UIFont(name: "MavenProRegular", size: 24)
+            cell.itemLabel.font = UIFont(name: "MavenProRegular", size: fontSize2)
             
             
 //            cell.contentView.backgroundColor = UIColor.cyan
@@ -619,7 +626,7 @@ Make sure the font file is included in the project and that the font name is spe
             return 40
         }
         else if indexPath.row > 2 {
-            return self.screenHeight / (CGFloat(Float(items.count) + 0.7))
+            return self.screenHeight / (CGFloat(Float(items.count)))
         }
         else {
             return 100

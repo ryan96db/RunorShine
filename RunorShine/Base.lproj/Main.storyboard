@@ -84,6 +84,7 @@
                     <navigationItem key="navigationItem" title="Run or Shine" id="YQX-Ff-NvN">
                         <barButtonItem key="backBarButtonItem" title="Back" id="K95-2F-xmL"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="4RH-H9-Yyc">
+                            <color key="tintColor" red="0.35286453366279602" green="0.80719470977783203" blue="0.97357207536697388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="doneWithSettings:" destination="BYZ-38-t0r" id="o5H-a4-99N"/>
                             </connections>
@@ -91,6 +92,8 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="DressLabel" destination="gAM-30-xdx" id="s6b-v3-4cI"/>
+                        <outlet property="TempLabel" destination="4Lu-nI-g4h" id="fNK-zu-Etg"/>
                         <outlet property="dressOption" destination="lqx-Jt-3wd" id="moi-7e-zie"/>
                         <outlet property="tempOption" destination="uHE-zD-IbP" id="v0L-8b-UnR"/>
                     </connections>
@@ -271,6 +274,7 @@
                     <navigationItem key="navigationItem" title="Weather" id="rEF-ki-EzI">
                         <barButtonItem key="backBarButtonItem" title="Back" id="xQB-Uw-65v"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="settings" id="kGi-qW-zN9">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="J5m-HQ-ug9" kind="presentation" id="PFq-ba-2Rb"/>
                             </connections>
@@ -305,6 +309,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settings" width="75" height="75"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

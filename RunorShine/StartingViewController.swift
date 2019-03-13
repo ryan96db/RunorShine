@@ -19,18 +19,24 @@ let dressKey = "Dress"
 class StartingViewController: UIViewController {
     
     
+    @IBOutlet weak var DressLabel: UILabel!
     
+    
+    @IBOutlet weak var TempLabel: UILabel!
     var dress: Int = Int()
     
     var degrees: Int = Int()
     
     
+    
     override func viewDidLoad() {
+        
         if let tempDisplay = UserDefaults.standard.value(forKey: degreesKey) {
             tempOption.selectedSegmentIndex = tempDisplay as! Int
             print(tempDisplay)
             degrees = tempDisplay as? Int ?? 1
             //Saves User temperature preference
+            
         }
         if let dressPreference = UserDefaults.standard.value(forKey: dressKey) {
             dressOption.selectedSegmentIndex = dressPreference as! Int
@@ -38,14 +44,25 @@ class StartingViewController: UIViewController {
             dress = dressPreference as? Int ?? 1
             //Saves User dress preference
         }
+    
+        let color = UIColor(red: 0.24, green: 0.56, blue: 0.72, alpha: 1)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+
+        self.navigationItem.title = "Settings"
         
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Background.png")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
-        
-        
+        self.view.backgroundColor = color
         self.navigationItem.hidesBackButton = true
+        self.DressLabel.font = UIFont(name: "MavenProRegular", size: 24)
+        self.TempLabel.font = UIFont(name: "MavenProRegular", size: 24)
+        
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "MavenProRegular", size: 15)]
+        dressOption.tintColor = UIColor.black
+        tempOption.tintColor = UIColor.black
+        dressOption.setTitleTextAttributes(titleTextAttributes, for: .normal)
+//        dressOption.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        tempOption.setTitleTextAttributes(titleTextAttributes, for: .normal)
+//        tempOption.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        
         
 //        for family in UIFont.familyNames.sorted() {
 //            let names = UIFont.fontNames(forFamilyName: family)

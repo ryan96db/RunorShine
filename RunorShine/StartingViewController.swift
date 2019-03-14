@@ -30,11 +30,11 @@ class StartingViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
+        tempOption.selectedSegmentIndex = 0
         if let tempDisplay = UserDefaults.standard.value(forKey: degreesKey) {
             tempOption.selectedSegmentIndex = tempDisplay as! Int
             print(tempDisplay)
-            degrees = tempDisplay as? Int ?? 1
+            degrees = tempDisplay as? Int ?? 0
             //Saves User temperature preference
             
         }
@@ -108,17 +108,20 @@ class StartingViewController: UIViewController {
         
                 if (sender as AnyObject).selectedSegmentIndex == 0 {
                     degrees = 0
-                    print("User wants ºC")
+                    print("User wants ºF")
                     print(degrees)
+                    UserDefaults.standard.set(degrees, forKey: degreesKey)
                 }
                 else {
-                    //If user changes to ºC, then changes it back to ºF
-                    print("User wants ºF")
+                    
+                    print("User wants ºC")
                     degrees = 1
                     print(degrees)
+                    
+                    UserDefaults.standard.set(degrees, forKey: degreesKey)
                 }
         
-        UserDefaults.standard.set(degrees, forKey: degreesKey)
+        
         
         
     }

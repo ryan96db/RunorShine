@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/ryandebose-boyd1/Documents/GitHub/RunorShine/RunorShine/LaunchScreen.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:RunorShine.xcodeproj">
    </FileRef>
    <FileRef

@@ -21,6 +21,7 @@
 		3AB0DDCD21F02C1F004EE230 /* WeatherIconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0DDCC21F02C1F004EE230 /* WeatherIconTableViewCell.swift */; };
 		3AB0DDCF21F10D0A004EE230 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0DDCE21F10D0A004EE230 /* ItemTableViewCell.swift */; };
 		3ABC007F21D405DF00CF8C19 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC007E21D405DF00CF8C19 /* CurrentWeatherViewController.swift */; };
+		3ADEC89B223B20BF00E3CC79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADEC89A223B20BF00E3CC79 /* LaunchScreen.storyboard */; };
 		D281662F4BF22D73814FC169 /* Pods_RunorShine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5F631A71878AE9D5F8C286 /* Pods_RunorShine.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +30,7 @@
 		324CA4669FD637737810ED2D /* Pods-RunorShine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunorShine.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunorShine/Pods-RunorShine.release.xcconfig"; sourceTree = "<group>"; };
 		3A0DF6FA21FE60D8001AE85F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3A25782422384E3800543D12 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3A2578282238A96E00543D12 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "/Users/ryandebose-boyd1/Documents/GitHub/RunorShine/RunorShine/LaunchScreen.storyboard"; sourceTree = "<absolute>"; };
-		3A25782B2238BAE000543D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A25782B2238BAE000543D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = RunorShine/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		3A74328421D3294200A04DA2 /* RunorShine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunorShine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A74328721D3294200A04DA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A74328C21D3294200A04DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +44,7 @@
 		3AB0DDCC21F02C1F004EE230 /* WeatherIconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconTableViewCell.swift; sourceTree = "<group>"; };
 		3AB0DDCE21F10D0A004EE230 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		3ABC007E21D405DF00CF8C19 /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
+		3ADEC89A223B20BF00E3CC79 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RunorShine/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		4A5F631A71878AE9D5F8C286 /* Pods_RunorShine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunorShine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,7 +95,7 @@
 				3A74329621D3294E00A04DA2 /* Info.plist */,
 				3A74328E21D3294200A04DA2 /* RunorShine.xcdatamodeld */,
 				3A25782B2238BAE000543D12 /* Assets.xcassets */,
-				3A2578282238A96E00543D12 /* LaunchScreen.storyboard */,
+				3ADEC89A223B20BF00E3CC79 /* LaunchScreen.storyboard */,
 				3A7F18862208FB9700BCDBB4 /* fonts */,
 			);
 			path = RunorShine;
@@ -188,6 +189,7 @@
 				3A25782522384E3800543D12 /* Podfile in Resources */,
 				3A74328D21D3294200A04DA2 /* Main.storyboard in Resources */,
 				3A7F18882208FB9700BCDBB4 /* mavenpro-regular.ttf in Resources */,
+				3ADEC89B223B20BF00E3CC79 /* LaunchScreen.storyboard in Resources */,
 				3A25782C2238BAE100543D12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 04654F4340B1C8DA31B1AF10 /* Pods-RunorShine.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q46V2P5M7A;
@@ -413,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 324CA4669FD637737810ED2D /* Pods-RunorShine.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q46V2P5M7A;

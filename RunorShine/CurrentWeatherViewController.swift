@@ -284,10 +284,10 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
                                 self.tempConvertedToC = Int((self.tempArray.last! - 273.15))
                                 let tempDisplay = self.getTempSetting()
                                 
-                                if tempDisplay == 1 {
+                                if tempDisplay == 0 {
                                     self.tempAsString = String(self.tempConvertedToF)
                                 }
-                                else {
+                                else if tempDisplay == 1 {
                                     self.tempAsString = String(self.tempConvertedToC)
                                 }
                                 
@@ -303,19 +303,21 @@ class CurrentWeatherViewController: UIViewController, UITableViewDelegate, UITab
                                 self.sunrise = self.dayNightArray[0]
                                 self.sunset = self.dayNightArray[1]
                                 self.current = self.dayNightArray[2]
+                                
+                                
+                                self.getItems()
+                                self.tableView.delegate = self
+                                self.tableView.dataSource = self
+                                self.tableView.reloadData()
+                                
+                                
+                                self.refreshControl.endRefreshing()
+                                
 
                             }
                         }//End of if let 2
-                        DispatchQueue.main.async {
-                            self.getItems()
-                        self.tableView.delegate = self
-                        self.tableView.dataSource = self
-                       self.tableView.reloadData()
                         
-                            
-                            self.refreshControl.endRefreshing()
-                            
-                        }
+                        
                     }//End of Do statement
                     
                 }
@@ -626,7 +628,8 @@ Make sure the font file is included in the project and that the font name is spe
             return 40
         }
         else if indexPath.row > 2 {
-            return self.screenHeight / (CGFloat(Float(items.count)))
+            return self.screenHeight / (CGFloat(Float(3)))
+//            return self.screenHeight / (CGFloat(Float(items.count - 1)))
         }
         else {
             return 100

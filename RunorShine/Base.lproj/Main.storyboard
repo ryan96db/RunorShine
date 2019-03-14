@@ -37,8 +37,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="uHE-zD-IbP">
                                 <rect key="frame" x="158" y="426" width="59" height="29"/>
                                 <segments>
-                                    <segment title="ºC"/>
                                     <segment title="ºF"/>
+                                    <segment title="ºC"/>
                                 </segments>
                                 <connections>
                                     <action selector="tempOptionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="rHC-oY-XWK"/>

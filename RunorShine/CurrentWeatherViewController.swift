@@ -536,7 +536,10 @@ Make sure the font file is included in the project and that the font name is spe
             cell.cityTextField.text! = cityArray.last!
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.contentView.backgroundColor = self.getBackgroundColor()
-            cell.cityTextField.font = UIFont(name: "MavenProRegular", size: 30)
+            let relativeFontConstant: CGFloat = 0.046
+            var screenSize = self.view.frame.height
+            var fontSize = relativeFontConstant * screenSize
+            cell.cityTextField.font = UIFont(name: "MavenProRegular", size: fontSize)
 
 
             return cell
@@ -564,10 +567,10 @@ Make sure the font file is included in the project and that the font name is spe
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentWeather") as! CurrentWeatherTableViewCell
             
-
-            cell.tempTextField.font = UIFont(name: "MavenProRegular", size: 45)
-            cell.conditionTextField.font = UIFont(name: "MavenProRegular", size: 23)
-                cell.tempTextField.text! = mainArray.last! + "º"
+            
+            cell.tempTextField.font = UIFont(name: "MavenProRegular", size: 50)
+            cell.conditionTextField.font = UIFont(name: "MavenProRegular", size: 25)
+            cell.tempTextField.text! = mainArray.last! + "º"
             cell.conditionTextField.text! = self.conditionTextField
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.contentView.backgroundColor = self.getBackgroundColor()
@@ -625,7 +628,7 @@ Make sure the font file is included in the project and that the font name is spe
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 40
+            return self.screenHeight / (CGFloat(Float(10)))
         }
         else if indexPath.row > 2 {
             return self.screenHeight / (CGFloat(Float(3)))

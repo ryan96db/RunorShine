@@ -168,7 +168,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentWeather" rowHeight="89" id="Pfp-kA-Hcc" customClass="CurrentWeatherTableViewCell" customModule="RunorShine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="180" width="375" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pfp-kA-Hcc" id="mq2-g1-I3b">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pfp-kA-Hcc" id="mq2-g1-I3b">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -183,7 +183,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOi-HO-LHf">
-                                                    <rect key="frame" x="166" y="30" width="43" height="48"/>
+                                                    <rect key="frame" x="166" y="49" width="43" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="47.5" id="zJm-Qt-nXw"/>
                                                     </constraints>
@@ -197,7 +197,7 @@
                                                 <constraint firstItem="yOi-HO-LHf" firstAttribute="centerX" secondItem="mq2-g1-I3b" secondAttribute="centerX" id="LCz-pr-JRq"/>
                                                 <constraint firstItem="EbI-uu-mtA" firstAttribute="centerX" secondItem="mq2-g1-I3b" secondAttribute="centerX" id="UMD-hH-tsH"/>
                                                 <constraint firstItem="EbI-uu-mtA" firstAttribute="top" secondItem="mq2-g1-I3b" secondAttribute="top" constant="11" id="Xpq-AV-Hyz"/>
-                                                <constraint firstItem="yOi-HO-LHf" firstAttribute="top" secondItem="EbI-uu-mtA" secondAttribute="bottom" constant="-9" id="YaS-LQ-aFw"/>
+                                                <constraint firstItem="yOi-HO-LHf" firstAttribute="top" secondItem="EbI-uu-mtA" secondAttribute="bottom" constant="10" id="YaS-LQ-aFw"/>
                                                 <constraint firstAttribute="bottom" secondItem="yOi-HO-LHf" secondAttribute="bottom" constant="11" id="d0Z-5N-4vl"/>
                                             </constraints>
                                         </tableViewCellContentView>

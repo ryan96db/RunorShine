@@ -52,10 +52,17 @@ class StartingViewController: UIViewController {
         
         self.view.backgroundColor = color
         self.navigationItem.hidesBackButton = true
-        self.DressLabel.font = UIFont(name: "MavenProRegular", size: 24)
-        self.TempLabel.font = UIFont(name: "MavenProRegular", size: 24)
+        let relativeFontConstant: CGFloat = 0.046
+        let relativeFontConstant1: CGFloat = 0.015
+        var screenSize = self.view.frame.height
+        var fontSize = relativeFontConstant * screenSize
+        var fontSize1 = relativeFontConstant1 * screenSize
         
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "MavenProRegular", size: 15)]
+        self.DressLabel.font = UIFont(name: "MavenProRegular", size: fontSize)
+        self.TempLabel.font = UIFont(name: "MavenProRegular", size: fontSize)
+        
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "MavenProRegular", size: fontSize1)
+        ]
         dressOption.tintColor = UIColor.black
         tempOption.tintColor = UIColor.black
         dressOption.setTitleTextAttributes(titleTextAttributes, for: .normal)
